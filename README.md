@@ -1,2 +1,2 @@
-# fullstack-osa3
-Fullstack-kurssin osa 3 tehtävät.
+# FullStack Osa 3
+Fullstack-kurssin osan 3 tehtävät.
