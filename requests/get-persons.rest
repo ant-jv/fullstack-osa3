@@ -1,1 +1,1 @@
-GET http://localhost:3001/api/persons
+GET https://safe-ravine-87589.herokuapp.com/api/persons

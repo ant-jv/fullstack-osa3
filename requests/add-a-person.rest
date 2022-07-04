@@ -1,7 +1,7 @@
-POST http://localhost:3001/api/persons
+POST https://safe-ravine-87589.herokuapp.com/api/persons
 Content-Type: application/json
 
 {
-    "name": "Jaskaa",
+    "name": "Keke Rosberg",
     "number": "123456"
 }
