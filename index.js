@@ -48,12 +48,7 @@ app.get('/api/persons', (request, response) => {
 
 app.get('/api/persons/:id', (request, response) => {
     const id = Number(request.params.id)
-    console.log(id)
-    //const person = persons.find(person => person.id === id)
-    Person.findById(id).then(person => {
-        response.json(person)
-        console.log(person)
-    })
+    const person = persons.find(person => person.id === id)
     if (person) {
         response.json(person)
     } else {
@@ -94,11 +89,16 @@ app.post('/api/persons', (request, response) => {
         })
     }
 
-    const person = {
-        "name": body.name,
-        "number": body.number,
+    const person = new Person({
+        name: body.name,
+        number: body.number,
         "id": generateId()
-    }
+    })
+
+    person.save().then(savedPerson => {
+        response.json(savedPerson)
+    })
+
 
     persons = persons.concat(person)
 

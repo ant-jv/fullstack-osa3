@@ -2,6 +2,6 @@ POST https://safe-ravine-87589.herokuapp.com/api/persons
 Content-Type: application/json
 
 {
-    "name": "Keke Rosberg",
+    "name": "Keke Rosbergi",
     "number": "123456"
 }
