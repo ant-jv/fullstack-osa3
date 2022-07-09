@@ -52,13 +52,6 @@ app.get('/api/persons/:id', (request, response) => {
     const person = Person.findById(request.params.id).then(person => {
         response.json(person)
     })
-
-    //const person = persons.find(person => person.id === id)
-    /*if (person) {
-        response.json(person)
-    } else {
-        response.status(404).end()
-    }*/
 })
 
 app.delete('/api/persons/:id', (request, response) => {
@@ -106,8 +99,6 @@ app.post('/api/persons', (request, response) => {
 
 
     persons = persons.concat(person)
-
-    response.json(person)
 })
 
 
