@@ -1,2 +1,1 @@
-//GET https://safe-ravine-87589.herokuapp.com/api/persons/62c869b0b89642c1a4145579
-GET http://localhost:3001/api/persons/62c869b0b89642c1a4145579
+GET https://safe-ravine-87589.herokuapp.com/api/persons/62c869b0b89642c1a4145579
