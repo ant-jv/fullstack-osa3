@@ -48,7 +48,10 @@ app.get('/api/persons', (request, response) => {
 
 app.get('/api/persons/:id', (request, response) => {
     const id = Number(request.params.id)
-    const person = persons.find(person => person.id === id)
+    //const person = persons.find(person => person.id === id)
+    Person.findById(request.params.id).then(person => {
+        response.json(person)
+    })
     if (person) {
         response.json(person)
     } else {
@@ -58,10 +61,7 @@ app.get('/api/persons/:id', (request, response) => {
 
 app.delete('/api/persons/:id', (request, response) => {
     const id = Number(request.params.id)
-    //persons = persons.filter(person => person.id !== id)
-    Person.findById(request.params.id).then(person => {
-        response.json(person)
-    })
+    persons = persons.filter(person => person.id !== id)
     response.status(204).end()
 })
 
