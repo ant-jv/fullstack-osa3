@@ -63,9 +63,11 @@ app.delete('/api/persons/:id', (request, response) => {
 })
 
 app.get('/info', (request, response) => {
-    response.type('text/plain')
-    const message = 'Phonebook has info for ' + persons.length + ' people.\n' + Date()
-    response.send(message)
+    Person.find().then( people => {
+        response.type('text/plain')
+        const message = 'Phonebook has info for ' + people.length + ' people.\n' + Date()
+        response.send(message)
+    })
 })
 
 app.post('/api/persons', (request, response) => {
