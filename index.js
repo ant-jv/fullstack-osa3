@@ -87,7 +87,9 @@ app.post('/api/persons', (request, response) => {
 
 app.put('/api/notes/:id', (request, response, next) => {
     const body = request.body
-  
+
+    console.log(body)
+
     const person = new Person({
         name: body.name,
         number: body.number,
