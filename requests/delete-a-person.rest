@@ -1,1 +1,1 @@
-DELETE https://safe-ravine-87589.herokuapp.com/api/persons/9724702564
+DELETE http://localhost:3001/api/persons/62c9cb00bbc14d062f777446
