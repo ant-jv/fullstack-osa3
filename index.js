@@ -43,13 +43,15 @@ let persons = [
 
 
 app.get('/api/persons', (request, response) => {
-    response.json(persons)
+    Person.find().then( people => {
+        response.json(people)
+    })
 })
 
 app.get('/api/persons/:id', (request, response) => {
     const id = Number(request.params.id)
 
-    const person = Person.findById(request.params.id).then(person => {
+    Person.findById(request.params.id).then(person => {
         response.json(person)
     })
 })
@@ -65,10 +67,6 @@ app.get('/info', (request, response) => {
     const message = 'Phonebook has info for ' + persons.length + ' people.\n' + Date()
     response.send(message)
 })
-
-const generateId = () => {
-    return Math.round(Math.random() * 9999999999)
-}
 
 app.post('/api/persons', (request, response) => {
     const body = request.body
@@ -89,16 +87,13 @@ app.post('/api/persons', (request, response) => {
 
     const person = new Person({
         name: body.name,
-        number: body.number,
-        "id": generateId()
+        number: body.number
     })
 
     person.save().then(savedPerson => {
         response.json(savedPerson)
     })
 
-
-    persons = persons.concat(person)
 })
 
 
