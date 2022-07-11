@@ -11,8 +11,11 @@ mongoose.connect(url)
         console.log('error connecting to MongoDB:', error.message)
     })
 
-const validator = (value) => {
-    return value === "012345"
+const tarkistus = value => {
+    if (value.length >= 8) {
+        return /\d{2,3}-\d+/.test(value)
+    }
+return false
 }
 
 const personSchema = new mongoose.Schema({
@@ -22,7 +25,7 @@ const personSchema = new mongoose.Schema({
     },
     number: {
         type: String,
-        validate: validator
+        validate: tarkistus
     }
 })
 
